@@ -61,18 +61,27 @@ export default function Hero() {
           </motion.p>
 
           <motion.div className="flex gap-4 mt-8" variants={stagger}>
-            <motion.button
+            {/* Learn More */}
+            <motion.a
+              href="https://wa.me/2348012345678?text=Hello%20I%20want%20to%20learn%20more%20about%20your%20services"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-7 py-3 rounded-md border border-white/40 hover:bg-white hover:text-[#0f2348] transition"
               variants={fadeUp}
             >
               Learn More
-            </motion.button>
-            <motion.button
+            </motion.a>
+
+            {/* Get Started */}
+            <motion.a
+              href="https://wa.me/2348012345678?text=Hello%20I%20am%20ready%20to%20get%20started"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-7 py-3 rounded-md bg-[#00a6c6] hover:bg-[#008ba6] shadow-xl shadow-cyan-900/40 transition"
               variants={fadeUp}
             >
               Get Started
-            </motion.button>
+            </motion.a>
           </motion.div>
         </motion.div>
 

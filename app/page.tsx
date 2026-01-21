@@ -6,6 +6,7 @@ import HowItWorks from '@/app/components/HowItWorks'
 import WhyChooseUs from '@/app/components/WhyChooseUs'
 import Testimonials from '@/app/components/Testimonials'
 import Footer from '@/app/components/footer/Footer'
+import FloatingWhatsApp from '@/app/components/shared/FloatingWhatsApp'
 
 export default function HomePage() {
   return (
@@ -21,6 +22,8 @@ export default function HomePage() {
       </main>
 
       <Footer />
+      {/* Fixed WhatsApp Icon */}
+      <FloatingWhatsApp />
     </div>
   )
 }

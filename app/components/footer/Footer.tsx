@@ -1,4 +1,13 @@
+'use client'
+
 import SectionHeader from '@/app/components/shared/SectionHeader'
+import {
+  FaFacebookF,
+  FaWhatsapp,
+  FaLinkedinIn,
+  FaInstagram,
+  FaXTwitter,
+} from 'react-icons/fa6'
 
 export default function Footer() {
   return (
@@ -6,7 +15,7 @@ export default function Footer() {
       id="contact"
       className="relative bg-[#0f2348] text-white pt-28 pb-16 overflow-hidden"
     >
-      {/* ===== Curved Top Shape (Soft & Wide) ===== */}
+      {/* ===== Curved Top Shape ===== */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
         <svg
           viewBox="0 0 1440 140"
@@ -31,6 +40,7 @@ export default function Footer() {
           titleColor="text-white"
         />
 
+        {/* ===== Contact Form ===== */}
         <form className="space-y-4 mt-12 max-w-2xl mx-auto">
           <div className="grid grid-cols-2 gap-4">
             <input
@@ -58,10 +68,68 @@ export default function Footer() {
           </button>
         </form>
 
-        <p className="mt-20 text-slate-400 text-sm">
+        {/* ===== Social Media Icons ===== */}
+        <div className="mt-14 flex justify-center gap-6">
+          <SocialIcon href="#" label="Facebook">
+            <FaFacebookF />
+          </SocialIcon>
+
+          <SocialIcon href="#" label="WhatsApp">
+            <FaWhatsapp />
+          </SocialIcon>
+
+          <SocialIcon href="#" label="LinkedIn">
+            <FaLinkedinIn />
+          </SocialIcon>
+
+          <SocialIcon href="#" label="Instagram">
+            <FaInstagram />
+          </SocialIcon>
+
+          <SocialIcon href="#" label="Twitter / X">
+            <FaXTwitter />
+          </SocialIcon>
+        </div>
+
+        <p className="mt-16 text-slate-400 text-sm">
           © {new Date().getFullYear()} DecisionLens. All rights reserved.
         </p>
       </div>
     </footer>
+  )
+}
+
+/* ===== Reusable Social Icon ===== */
+function SocialIcon({
+  href,
+  label,
+  children,
+}: {
+  href: string
+  label: string
+  children: React.ReactNode
+}) {
+  return (
+    <a
+      href={href}
+      aria-label={label}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        w-11 h-11
+        rounded-full
+        border border-white/30
+        flex items-center justify-center
+        text-lg
+        text-white
+        transition-all duration-300
+        hover:bg-[#D29D48]
+        hover:text-[#0f2348]
+        hover:-translate-y-1
+        hover:shadow-lg
+      "
+    >
+      {children}
+    </a>
   )
 }
