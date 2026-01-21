@@ -1,8 +1,22 @@
-import type { NextConfig } from 'next'
+import { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
+  reactStrictMode: true,
   images: {
-    domains: ['images.unsplash.com'], // Add external domains here
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com', // your image domain
+        port: '', // optional
+        pathname: '/**', // match all paths
+      },
+      {
+        protocol: 'https',
+        hostname: 'api.qrserver.com', // if using QR codes from API
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
 }
 

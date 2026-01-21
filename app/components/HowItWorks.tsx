@@ -12,13 +12,20 @@ interface StepProps {
   isFirst?: boolean
 }
 
-function Step({ n, title, description, bg, isFirst = false }: StepProps) {
+function Step({
+  n,
+  title,
+  description,
+  bg,
+  isFirst = false,
+  isLast = false,
+}: StepProps & { isLast?: boolean }) {
   return (
     <motion.div
       variants={fadeUp}
       className={`
         ${bg} flex-1 py-6 px-6 text-white relative items-center flex
-        step-container ${isFirst ? 'first-step' : ''} ${bg === '#005a70' ? 'last-step' : ''}
+        step-container ${isFirst ? 'first-step' : ''} ${isLast ? 'last-step' : ''}
       `}
     >
       <div className="flex items-center gap-4 w-full relative z-10">
@@ -31,7 +38,7 @@ function Step({ n, title, description, bg, isFirst = false }: StepProps) {
             {title}
           </h3>
           {description && (
-            <p className="hidden lg:block mt-0.5 text-[10px] text-white/70 leading-tight">
+            <p className="block mt-0.5 text-[10px] text-white/70 leading-tight">
               {description}
             </p>
           )}
@@ -40,6 +47,7 @@ function Step({ n, title, description, bg, isFirst = false }: StepProps) {
     </motion.div>
   )
 }
+
 
 
 export default function HowItWorks() {
@@ -58,21 +66,12 @@ export default function HowItWorks() {
         </div>
       </motion.div>
 
-      <motion.div
-        className="
-          mt-8
-          flex flex-col
-          md:flex-row
-          md:h-20
-          max-w-7xl mx-auto
-          md:overflow-visible
-        "
-      >
+      <motion.div className="mt-8 flex flex-col md:flex-row md:h-20 max-w-7xl mx-auto md:overflow-visible">
         <Step
           n="1"
           title="Collect & Analyze Data"
           description="Analyze business goals."
-          bg="bg-[#0f2348]"
+          bg="bg-[#0E356E]"
           isFirst
         />
 
@@ -88,6 +87,7 @@ export default function HowItWorks() {
           title="Manage Contracts Efficiently"
           description="Ensure compliance & speed."
           bg="bg-[#005a70]"
+          isLast
         />
       </motion.div>
     </motion.section>
