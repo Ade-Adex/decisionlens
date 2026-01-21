@@ -97,7 +97,7 @@ export default function Testimonials() {
 
         {/* Navigation Arrows */}
         <motion.button
-          className={`testimonial-prev absolute -left-5 md:-left-8.5 top-1/3 z-30 p-2 md:p-3 bg-white rounded-full shadow-lg transition-all ${
+          className={`testimonial-prev absolute -left-3 md:-left-8.5 top-1/3 z-30 p-2 md:p-3 bg-white rounded-full shadow-lg transition-all ${
             isBeginning
               ? 'opacity-20 hover:cursor-not-allowed'
               : 'opacity-100 hover:cursor-pointer'
@@ -108,7 +108,7 @@ export default function Testimonials() {
         </motion.button>
 
         <motion.button
-          className={`testimonial-next absolute -right-5 md:-right-8.5 top-1/3 z-30 p-2 md:p-3 bg-white rounded-full shadow-lg transition-all ${
+          className={`testimonial-next absolute -right-3 md:-right-8.5 top-1/3 z-30 p-2 md:p-3 bg-white rounded-full shadow-lg transition-all ${
             isEnd
               ? 'opacity-20 hover:cursor-not-allowed'
               : 'opacity-100 hover:cursor-pointer'
