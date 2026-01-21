@@ -37,7 +37,7 @@ export default function Testimonials() {
   return (
     <motion.section
       id="testimonials"
-      className="py-24 bg-slate-50 "
+      className="py-24 bg-slate-50 px-6 md:px-0"
       variants={stagger}
       initial="hidden"
       whileInView="visible"
