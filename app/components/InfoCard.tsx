@@ -8,7 +8,7 @@ interface InfoCardProps {
 
 export default function InfoCard({ icon, title, text }: InfoCardProps) {
   return (
-    <div className="bg-white md:h-64 rounded-xl p-8 text-center shadow-lg border border-slate-100 hover:shadow-xl transition flex flex-col items-center">
+    <div className="bg-white md:h-80 rounded-xl p-8 text-center shadow-lg border border-slate-100 hover:shadow-xl transition flex flex-col items-center">
       <div className="w-16 h-16 rounded-full bg-[#0f2348] flex items-center justify-center mb-6">
         {icon}
       </div>

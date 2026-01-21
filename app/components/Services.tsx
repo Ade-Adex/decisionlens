@@ -4,7 +4,13 @@ import InfoCard from '@/app/components/InfoCard'
 import SectionHeader from '@/app/components/shared/SectionHeader'
 import { fadeUp, stagger } from '@/app/lib/animations' // adjust path if needed
 import { motion } from 'framer-motion'
-import { BarChart3, Briefcase, FileText } from 'lucide-react'
+import {
+  BarChart3,
+  Briefcase,
+  ShoppingBag,
+  PenTool,
+  FileText,
+} from 'lucide-react'
 
 export default function Services() {
   return (
@@ -21,29 +27,41 @@ export default function Services() {
         <SectionHeader title="Our Services" />
       </motion.div>
 
-      {/* Animate Info Cards with stagger */}
-      <motion.div className="w-full mt-14 grid md:grid-cols-3 gap-10">
+      {/* Services Grid */}
+      <motion.div className="w-full mt-14 grid md:grid-cols-4 gap-5">
+        {/* Analytics */}
         <motion.div variants={fadeUp}>
           <InfoCard
-            icon={<BarChart3 className="text-white" />}
+            icon={<BarChart3 className="w-8 h-8 text-white" />}
             title="Analytics"
-            text="Turn raw data into actionable insights."
+            text="Turn raw data into actionable insights that drive smarter decisions."
           />
         </motion.div>
 
+        {/* Procurement */}
         <motion.div variants={fadeUp}>
           <InfoCard
-            icon={<Briefcase className="text-white" />}
-            title="Procurement Solutions"
-            text="Streamline your sourcing and vendor management."
+            icon={<Briefcase className="w-8 h-8 text-white" />}
+            title="Procurement & Contract Management"
+            text="Streamline sourcing, manage vendors, ensure compliance, and reduce risk."
           />
         </motion.div>
 
+        {/* Shopify */}
         <motion.div variants={fadeUp}>
           <InfoCard
-            icon={<FileText className="text-white" />}
-            title="Contract Management"
-            text="Simplify contracts, reduce risk, and ensure compliance."
+            icon={<ShoppingBag className="w-8 h-8 text-white" />}
+            title="Shopify Expert"
+            text="Build, optimize, and scale high-converting Shopify e-commerce stores."
+          />
+        </motion.div>
+
+        {/* Product Design */}
+        <motion.div variants={fadeUp}>
+          <InfoCard
+            icon={<PenTool className="w-8 h-8 text-white" />}
+            title="Product Design"
+            text="Design intuitive, user-focused digital products and experiences."
           />
         </motion.div>
       </motion.div>

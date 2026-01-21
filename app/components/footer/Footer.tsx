@@ -74,7 +74,7 @@ export default function Footer() {
             <FaFacebookF />
           </SocialIcon>
 
-          <SocialIcon href="#" label="WhatsApp">
+          <SocialIcon href="https://wa.me/2348140877018" label="WhatsApp">
             <FaWhatsapp />
           </SocialIcon>
 

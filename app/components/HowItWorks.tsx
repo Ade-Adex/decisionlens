@@ -6,22 +6,31 @@ import { fadeUp, stagger } from '@/app/lib/animations'
 
 interface StepProps {
   n: string
-  label: string
+  title: string
+  description: string
   bg: string
   last?: boolean
 }
 
-function Step({ n, label, bg, last = false }: StepProps) {
+
+function Step({ n, title, description, bg, last = false }: StepProps) {
   return (
     <motion.div
       variants={fadeUp}
-      className={`${bg} flex-1 py-5 px-6 flex items-center gap-4 text-white relative`}
+      className={`${bg} flex-1 py-6 px-6 text-white relative`}
     >
-      <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-white text-[#0f2348] flex items-center justify-center font-bold text-sm md:text-base">
-        {n}
-      </div>
+      <div className="flex items-start gap-4">
+        <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white text-[#0f2348] flex items-center justify-center font-bold text-sm md:text-base shrink-0">
+          {n}
+        </div>
 
-      <span className="text-sm md:text-base font-medium">{label}</span>
+        <div>
+          <h3 className="font-semibold text-base md:text-lg">{title}</h3>
+          <p className="mt-1 text-sm text-white/80 leading-relaxed">
+            {description}
+          </p>
+        </div>
+      </div>
 
       {/* Connector — desktop only */}
       {!last && (
@@ -32,6 +41,7 @@ function Step({ n, label, bg, last = false }: StepProps) {
     </motion.div>
   )
 }
+
 
 export default function HowItWorks() {
   return (
@@ -51,21 +61,34 @@ export default function HowItWorks() {
 
       <motion.div
         className="
-          mt-8
-          flex flex-col
-          md:flex-row
-          rounded-lg
-          shadow
-          overflow-visible
-          md:overflow-hidden
-          max-w-7xl mx-auto
-        "
+    mt-8
+    flex flex-col
+    md:flex-row
+    rounded-lg
+    shadow
+    overflow-visible
+    md:overflow-hidden
+    max-w-7xl mx-auto
+  "
       >
-        <Step n="1" label="Collect & Analyze Data" bg="bg-[#0f2348]" />
-        <Step n="2" label="Optimize Procurement" bg="bg-[#007f9c]" />
+        <Step
+          n="1"
+          title="Analyze Needs"
+          description="Understand your business challenges, workflows, and strategic goals."
+          bg="bg-[#0f2348]"
+        />
+
+        <Step
+          n="2"
+          title="Build Solutions"
+          description="Design data-driven, scalable systems tailored to your operations."
+          bg="bg-[#007f9c]"
+        />
+
         <Step
           n="3"
-          label="Manage Contracts Efficiently"
+          title="Optimize & Manage"
+          description="Continuously improve performance while ensuring compliance and control."
           bg="bg-[#005a70]"
           last
         />

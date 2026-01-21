@@ -120,7 +120,7 @@ export default function Testimonials() {
 
         {/* Pagination Dots */}
         <motion.div
-          className="absolute flex justify-center items-center gap-3 bottom-5 left-1/3 md:left-1/2 z-50"
+          className="absolute flex justify-center items-center gap-3 bottom-5 left-1/3 md:left-1/2 z-30"
           variants={fadeUp}
         >
           {testimonials.map((_, index) => (

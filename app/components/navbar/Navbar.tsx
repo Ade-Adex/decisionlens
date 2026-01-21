@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
+import Logo from '@/public/Images/logo.jpeg'
+import Image from 'next/image'
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -61,8 +63,22 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="text-2xl font-bold text-white cursor-pointer">
-          DecisionLens
+        <Link
+          href="/"
+          className="flex items-center gap-3 text-xl md:text-2xl font-bold text-white cursor-pointer"
+        >
+          <div className="relative w-10 h-10 md:w-12 md:h-12 flex">
+            <Image
+              src={Logo}
+              alt="DecisionLens Logo"
+              priority
+              className="object-cover rounded-full my-auto"
+            />
+          </div>
+
+          <span className="leading-none tracking-tight">
+            Decision<span className="text-[#00a6c6]">Lens</span>
+          </span>
         </Link>
 
         {/* Desktop Links */}
