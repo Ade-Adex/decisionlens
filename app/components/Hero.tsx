@@ -1,87 +1,37 @@
-// import React from 'react'
-// import { BarChart3 } from 'lucide-react'
-
-// export default function Hero() {
-//   return (
-//     <header
-//       id="home"
-//       className="relative bg-[#0f2348] text-white overflow-hidden pb-20 pt-24 md:pt-32"
-//     >
-//       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#163060] to-transparent opacity-50 z-0"></div>
-//       <div className="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
-//         <div className="space-y-6">
-//           <h1 className="text-5xl font-extrabold leading-tight">
-//             Better Decisions.
-//           </h1>
-//           <p className="text-lg text-slate-300 max-w-md">
-//             Empowering businesses with advanced analytics, procurement
-//             solutions, and contract management tools.
-//           </p>
-//           <div className="flex gap-4 pt-4">
-//             <button className="px-6 py-3 border border-slate-400 rounded-md font-medium hover:bg-white hover:text-[#0f2348] transition">
-//               Learn More
-//             </button>
-//             <button className="px-6 py-3 bg-[#00a6c6] rounded-md font-medium hover:bg-[#008ba6] transition shadow-lg shadow-cyan-900/50">
-//               Get Started
-//             </button>
-//           </div>
-//         </div>
-//         <div className="relative">
-//           <div className="bg-white rounded-lg shadow-2xl p-2 border border-slate-700 transform rotate-1 hover:rotate-0 transition duration-500">
-//             <div className="bg-slate-100 rounded overflow-hidden aspect-video relative flex items-center justify-center text-center p-8">
-//               <BarChart3 className="w-16 h-16 text-[#0f2348] mx-auto mb-4" />
-//               <span className="text-slate-400 font-medium">
-//                 Dashboard Preview
-//               </span>
-//               <div className="absolute top-4 left-4 right-4 h-4 bg-white rounded shadow-sm"></div>
-//               <div className="absolute top-10 left-4 w-1/3 h-24 bg-blue-100 rounded shadow-sm"></div>
-//               <div className="absolute top-10 right-4 w-1/2 h-24 bg-white rounded shadow-sm flex items-center justify-center">
-//                 <div className="w-10 h-10 rounded-full bg-orange-400"></div>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//       <div className="absolute bottom-0 left-0 w-full leading-none">
-//         <svg
-//           className="block w-full h-12 lg:h-24"
-//           viewBox="0 0 1440 320"
-//           preserveAspectRatio="none"
-//         >
-//           <path
-//             fill="#ffffff"
-//             fillOpacity="1"
-//             d="M0,224L1440,96L1440,320L0,320Z"
-//           ></path>
-//         </svg>
-//       </div>
-//     </header>
-//   )
-// }
-
-
-
-
-
-
-
-
-
-import { BarChart3 } from 'lucide-react'
+import Image from 'next/image'
+import BarChatImage from '@/public/Images/barchatImage.jpeg'
 
 export default function Hero() {
   return (
-    <header className="relative overflow-hidden bg-[linear-gradient(135deg,#0f2348,#163060)] text-white pt-28 pb-28">
-      {/* Decorative gradients */}
-      <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl" />
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#1e3a8a]/40 to-transparent" />
+    <header className="relative overflow-hidden text-white pt-28 pb-36">
+      {/* ===== Gradient Background ===== */}
+      <div className="absolute inset-0 bg-linear-to-br from-[#0b1f4d] via-[#0e2b6f] to-[#091a3a]" />
 
+      {/* ===== Glow Ellipses ===== */}
+      <div className="absolute -top-32 -left-32 w-130 h-130 bg-cyan-500/20 rounded-full blur-[120px]" />
+      <div className="absolute top-1/2 -right-48 w-155 h-155 bg-blue-400/10 rounded-full blur-[150px]" />
+
+      {/* ===== Dotted Pattern ===== */}
+      <div
+        className="absolute inset-0 opacity-[0.15]"
+        style={{
+          backgroundImage:
+            'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 0)',
+          backgroundSize: '22px 22px',
+          maskImage:
+            'linear-gradient(to bottom right, black 45%, transparent 90%)',
+          WebkitMaskImage:
+            'linear-gradient(to bottom right, black 45%, transparent 90%)',
+        }}
+      />
+
+      {/* ===== Content ===== */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
-        {/* Text */}
         <div>
           <h1 className="text-5xl lg:text-6xl font-extrabold leading-tight">
             Better Decisions.
           </h1>
+
           <p className="mt-6 max-w-md text-slate-300 text-lg">
             Empowering businesses with advanced analytics, procurement
             solutions, and contract management tools.
@@ -97,36 +47,27 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Dashboard Mock */}
-        <div className="relative">
-          <div className="bg-white rounded-xl shadow-2xl border border-slate-200 p-3 rotate-1 hover:rotate-0 transition duration-500">
-            <div className="relative bg-slate-100 rounded-lg aspect-video overflow-hidden">
-              {/* Top bar */}
-              <div className="absolute top-2 left-2 right-2 h-4 bg-white rounded shadow" />
-
-              {/* Charts */}
-              <div className="absolute left-4 top-10 w-1/3 h-28 bg-blue-100 rounded shadow" />
-              <div className="absolute right-4 top-10 w-1/2 h-28 bg-white rounded shadow flex items-center justify-center">
-                <div className="w-12 h-12 bg-amber-400 rounded-full" />
-              </div>
-
-              <div className="absolute bottom-6 left-6 text-center">
-                <BarChart3 className="w-12 h-12 text-[#0f2348] mx-auto" />
-                <p className="text-xs text-slate-400 mt-1">Dashboard Preview</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Image
+          src={BarChatImage}
+          alt="Dashboard Preview"
+          className="rounded-xl shadow-2xl border border-white/10"
+          priority
+        />
       </div>
 
-      {/* Wave */}
-      <svg
-        className="absolute bottom-0 w-full h-24"
-        viewBox="0 0 1440 320"
-        preserveAspectRatio="none"
-      >
-        <path fill="#ffffff" d="M0,224L1440,96L1440,320L0,320Z" />
-      </svg>
+      {/* ===== Curved Bottom Shape ===== */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+        <svg
+          viewBox="0 0 1440 120"
+          className="block w-full h-30 rotate-180"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,40 C240,120 480,120 720,70 960,20 1200,20 1440,60 L1440,0 L0,0 Z"
+            fill="white"
+          />
+        </svg>
+      </div>
     </header>
   )
 }

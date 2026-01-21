@@ -26,10 +26,14 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-[#0f2348] shadow-lg py-3' : 'bg-transparent py-5'
+        scrolled
+          ? 'bg-[#0f2348] shadow-lg py-5 md:py-3'
+          : ' bg-[#0f2348] md:bg-transparent py-5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <div
+        className={` max-w-7xl mx-auto px-6 flex justify-between items-center`}
+      >
         {/* Logo */}
         <div className="text-2xl font-bold text-white tracking-tight cursor-pointer">
           DecisionLens
@@ -64,13 +68,13 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="md:hidden bg-[#0f2348] border-t border-slate-700 absolute w-full left-0 p-6 space-y-4 shadow-xl">
+        <div className="md:hidden bg-[#0f2348] border-t border-slate-700 absolute w-full h-screen top-17.5 left-0 p-6 space-y-6 shadow-xl">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="block text-slate-200 text-lg font-medium"
+              className="block text-slate-200 text-lg font-medium hover:text-[#00a6c6]"
             >
               {link.name}
             </a>
