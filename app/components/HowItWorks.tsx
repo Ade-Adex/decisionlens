@@ -9,35 +9,34 @@ interface StepProps {
   title: string
   description: string
   bg: string
-  last?: boolean
+  isFirst?: boolean
 }
 
-
-function Step({ n, title, description, bg, last = false }: StepProps) {
+function Step({ n, title, description, bg, isFirst = false }: StepProps) {
   return (
     <motion.div
       variants={fadeUp}
-      className={`${bg} flex-1 py-6 px-6 text-white relative`}
+      className={`
+        ${bg} flex-1 py-6 px-6 text-white relative items-center flex
+        step-container ${isFirst ? 'first-step' : ''} ${bg === '#005a70' ? 'last-step' : ''}
+      `}
     >
-      <div className="flex items-start gap-4">
-        <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white text-[#0f2348] flex items-center justify-center font-bold text-sm md:text-base shrink-0">
+      <div className="flex items-center gap-4 w-full relative z-10">
+        <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold shrink-0">
           {n}
         </div>
 
-        <div>
-          <h3 className="font-semibold text-base md:text-lg">{title}</h3>
-          <p className="mt-1 text-sm text-white/80 leading-relaxed">
-            {description}
-          </p>
+        <div className="pr-6">
+          <h3 className="font-semibold text-sm md:text-base lg:text-lg whitespace-nowrap">
+            {title}
+          </h3>
+          {description && (
+            <p className="hidden lg:block mt-0.5 text-[10px] text-white/70 leading-tight">
+              {description}
+            </p>
+          )}
         </div>
       </div>
-
-      {/* Connector — desktop only */}
-      {!last && (
-        <div className="hidden md:block absolute right-0 top-0 h-full w-6 translate-x-1/2">
-          <div className="h-full w-full bg-inherit skew-x-[-20deg]" />
-        </div>
-      )}
     </motion.div>
   )
 }
@@ -47,7 +46,7 @@ export default function HowItWorks() {
   return (
     <motion.section
       id="process"
-      className="bg-slate-50 py-16"
+      className="py-16"
       variants={stagger}
       initial="hidden"
       whileInView="visible"
@@ -61,36 +60,34 @@ export default function HowItWorks() {
 
       <motion.div
         className="
-    mt-8
-    flex flex-col
-    md:flex-row
-    rounded-lg
-    shadow
-    overflow-visible
-    md:overflow-hidden
-    max-w-7xl mx-auto
-  "
+          mt-8
+          flex flex-col
+          md:flex-row
+          md:h-20
+          max-w-7xl mx-auto
+          md:overflow-visible
+        "
       >
         <Step
           n="1"
-          title="Analyze Needs"
-          description="Understand your business challenges, workflows, and strategic goals."
+          title="Collect & Analyze Data"
+          description="Analyze business goals."
           bg="bg-[#0f2348]"
+          isFirst
         />
 
         <Step
           n="2"
-          title="Build Solutions"
-          description="Design data-driven, scalable systems tailored to your operations."
+          title="Optimize Procurement"
+          description="Scalable data systems."
           bg="bg-[#007f9c]"
         />
 
         <Step
           n="3"
-          title="Optimize & Manage"
-          description="Continuously improve performance while ensuring compliance and control."
+          title="Manage Contracts Efficiently"
+          description="Ensure compliance & speed."
           bg="bg-[#005a70]"
-          last
         />
       </motion.div>
     </motion.section>

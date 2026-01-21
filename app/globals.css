@@ -33,3 +33,44 @@ body {
 .input {
   @apply w-full p-3 rounded bg-slate-800/50 border border-slate-600 placeholder-slate-400 outline-none focus:border-[#00a6c6];
 }
+
+
+/* Desktop Steps — chevron shapes */
+@media (min-width: 768px) {
+  .step-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  /* Add the right-pointing chevron using ::after */
+  .step-container::after {
+    content: '';
+    position: absolute;
+    right: -20px; /* width of the chevron */
+    top: 0;
+    width: 40px;
+    height: 100%;
+    background: inherit;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+  }
+
+  /* Remove chevron for last step */
+  .step-container.last-step::after {
+    display: none;
+  }
+
+  /* Optional: add left indent for non-first steps */
+  .step-container:not(.first-step)::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 0;
+    width: 20px;
+    height: 100%;
+    background: inherit;
+    clip-path: polygon(100% 0, 0 50%, 100% 100%);
+  }
+}
