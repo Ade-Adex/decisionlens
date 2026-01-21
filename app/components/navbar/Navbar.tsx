@@ -87,7 +87,7 @@ const Navbar = () => {
             const isActive = activeSection === link.href.substring(1)
 
             return (
-              <a
+              <Link
                 key={link.name}
                 href={link.href}
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-all
@@ -99,16 +99,16 @@ const Navbar = () => {
                 `}
               >
                 {link.name}
-              </a>
+              </Link>
             )
           })}
 
-          <a
+          <Link
             href="#contact"
             className="ml-3 bg-transparent border border-[#00a6c6] hover:text-[#00a6c6] hover:border-white text-white px-5 py-2 rounded-md font-semibold transition"
           >
             Get Started
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Button */}
@@ -126,7 +126,7 @@ const Navbar = () => {
             const isActive = activeSection === link.href.substring(1)
 
             return (
-              <a
+              <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
@@ -139,17 +139,17 @@ const Navbar = () => {
                 `}
               >
                 {link.name}
-              </a>
+              </Link>
             )
           })}
 
-          <a
+          <Link
             href="#contact"
             onClick={() => setIsOpen(false)}
             className="block bg-transparent border border-[#00a6c6] hover:text-[#00a6c6] hover:border-white text-white text-center py-3 rounded-md font-bold"
           >
             Get Started
-          </a>
+          </Link>
         </div>
       )}
     </nav>
