@@ -1,9 +1,25 @@
+'use client'
+
 import Image from 'next/image'
 import BarChatImage from '@/public/Images/barchatImage.jpeg'
+import { motion } from 'framer-motion'
+import {
+  fadeUp,
+  fadeLeft,
+  scaleUp,
+  stagger,
+} from '@/app/lib/animations'
 
 export default function Hero() {
   return (
-    <header id="home" className="relative overflow-hidden text-white pt-28 pb-36">
+    <motion.header
+      id="home"
+      className="relative overflow-hidden text-white pt-28 pb-36"
+      variants={stagger}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.3 }}
+    >
       {/* ===== Gradient Background ===== */}
       <div className="absolute inset-0 bg-linear-to-br from-[#0b1f4d] via-[#0e2b6f] to-[#091a3a]" />
 
@@ -27,32 +43,48 @@ export default function Hero() {
 
       {/* ===== Content ===== */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
-        <div>
-          <h1 className="text-5xl lg:text-6xl font-extrabold leading-tight">
+        {/* Left Text */}
+        <motion.div className="space-y-6" variants={fadeLeft}>
+          <motion.h1
+            className="text-5xl lg:text-6xl font-extrabold leading-tight"
+            variants={fadeUp}
+          >
             Better Decisions.
-          </h1>
+          </motion.h1>
 
-          <p className="mt-6 max-w-md text-slate-300 text-lg">
+          <motion.p
+            className="max-w-md text-slate-300 text-lg"
+            variants={fadeUp}
+          >
             Empowering businesses with advanced analytics, procurement
             solutions, and contract management tools.
-          </p>
+          </motion.p>
 
-          <div className="flex gap-4 mt-8">
-            <button className="px-7 py-3 rounded-md border border-white/40 hover:bg-white hover:text-[#0f2348] transition">
+          <motion.div className="flex gap-4 mt-8" variants={stagger}>
+            <motion.button
+              className="px-7 py-3 rounded-md border border-white/40 hover:bg-white hover:text-[#0f2348] transition"
+              variants={fadeUp}
+            >
               Learn More
-            </button>
-            <button className="px-7 py-3 rounded-md bg-[#00a6c6] hover:bg-[#008ba6] shadow-xl shadow-cyan-900/40 transition">
+            </motion.button>
+            <motion.button
+              className="px-7 py-3 rounded-md bg-[#00a6c6] hover:bg-[#008ba6] shadow-xl shadow-cyan-900/40 transition"
+              variants={fadeUp}
+            >
               Get Started
-            </button>
-          </div>
-        </div>
+            </motion.button>
+          </motion.div>
+        </motion.div>
 
-        <Image
-          src={BarChatImage}
-          alt="Dashboard Preview"
-          className="rounded-xl shadow-2xl border border-white/10"
-          priority
-        />
+        {/* Right Image */}
+        <motion.div variants={scaleUp}>
+          <Image
+            src={BarChatImage}
+            alt="Dashboard Preview"
+            className="rounded-xl shadow-2xl border border-white/10"
+            priority
+          />
+        </motion.div>
       </div>
 
       {/* ===== Curved Bottom Shape ===== */}
@@ -68,6 +100,6 @@ export default function Hero() {
           />
         </svg>
       </div>
-    </header>
+    </motion.header>
   )
 }

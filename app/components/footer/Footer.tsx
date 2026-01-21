@@ -1,4 +1,4 @@
-import SectionHeader from "@/app/components/SectionHeader";
+import SectionHeader from '@/app/components/shared/SectionHeader'
 
 export default function Footer() {
   return (
