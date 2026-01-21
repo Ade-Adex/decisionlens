@@ -4,7 +4,7 @@ import { BarChart3, Briefcase, FileText } from 'lucide-react'
 
 export default function Services() {
   return (
-    <section className="py-20 max-w-7xl mx-auto px-6">
+    <section id="services" className="py-20 max-w-7xl mx-auto px-6">
       <SectionHeader title="Our Services" />
 
       <div className="w-full mt-14 grid md:grid-cols-3 gap-10">

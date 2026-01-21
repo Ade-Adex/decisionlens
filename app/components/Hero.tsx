@@ -3,13 +3,13 @@ import BarChatImage from '@/public/Images/barchatImage.jpeg'
 
 export default function Hero() {
   return (
-    <header className="relative overflow-hidden text-white pt-28 pb-36">
+    <header id="home" className="relative overflow-hidden text-white pt-28 pb-36">
       {/* ===== Gradient Background ===== */}
       <div className="absolute inset-0 bg-linear-to-br from-[#0b1f4d] via-[#0e2b6f] to-[#091a3a]" />
 
       {/* ===== Glow Ellipses ===== */}
-      <div className="absolute -top-32 -left-32 w-130 h-130 bg-cyan-500/20 rounded-full blur-[120px]" />
-      <div className="absolute top-1/2 -right-48 w-155 h-155 bg-blue-400/10 rounded-full blur-[150px]" />
+      <div className="absolute -bottom-32 -left-32 w-130 h-130 bg-cyan-500/20 rounded-full blur-[120px]" />
+      <div className="absolute bottom-1/2 -right-48 w-155 h-155 bg-blue-400/50 rounded-full blur-[150px]" />
 
       {/* ===== Dotted Pattern ===== */}
       <div

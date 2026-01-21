@@ -1,81 +1,59 @@
-// import React from 'react';
-
-// export default function Footer() {
-//   return (
-//     <footer id="contact" className="bg-[#0f2348] text-white py-16 relative overflow-hidden">
-//       <div className="absolute top-0 left-0 w-full leading-none rotate-180">
-//          <svg className="block w-full h-12 lg:h-16" viewBox="0 0 1440 320" preserveAspectRatio="none">
-//            <path fill="#f8fafc" fillOpacity="1" d="M0,224L1440,96L1440,320L0,320Z"></path>
-//          </svg>
-//       </div>
-
-//       <div className="max-w-2xl mx-auto px-6 relative z-10 pt-10">
-//         <h2 className="text-3xl font-bold text-center mb-8">Ready to transform your business?</h2>
-        
-//         <form className="space-y-4">
-//           <div className="grid grid-cols-2 gap-4">
-//             <input type="text" placeholder="Name" className="w-full p-3 rounded bg-slate-800/50 border border-slate-600 focus:border-[#00a6c6] outline-none transition placeholder-slate-400" />
-//             <input type="email" placeholder="Email" className="w-full p-3 rounded bg-slate-800/50 border border-slate-600 focus:border-[#00a6c6] outline-none transition placeholder-slate-400" />
-//           </div>
-//           <input type="text" placeholder="Company" className="w-full p-3 rounded bg-slate-800/50 border border-slate-600 focus:border-[#00a6c6] outline-none transition placeholder-slate-400" />
-//           <textarea placeholder="Message" rows={4} className="w-full p-3 rounded bg-slate-800/50 border border-slate-600 focus:border-[#00a6c6] outline-none transition placeholder-slate-400 resize-none"></textarea>
-          
-//           <div className="text-center pt-4">
-//              <button type="submit" className="px-8 py-3 bg-amber-500 rounded font-bold text-[#0f2348] hover:bg-amber-400 transition shadow-lg">
-//                Get Started
-//              </button>
-//           </div>
-//         </form>
-        
-//         <div className="mt-20 pt-8 border-t border-slate-700/50 text-center text-slate-400 text-sm">
-//           © {new Date().getFullYear()} DecisionLens. All rights reserved.
-//         </div>
-//       </div>
-
-//       {/* Background Orbs */}
-//       <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
-//       <div className="absolute bottom-0 right-0 w-64 h-64 bg-cyan-600/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
-//     </footer>
-//   );
-// }
-
-
-
-
-
-
-
-
+import SectionHeader from "@/app/components/SectionHeader";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#0f2348] text-white pt-24 pb-16 overflow-hidden">
-      {/* Top wave */}
-      <svg
-        className="absolute top-0 w-full h-20 rotate-180"
-        viewBox="0 0 1440 320"
-        preserveAspectRatio="none"
-      >
-        <path fill="#f8fafc" d="M0,224L1440,96L1440,320L0,320Z" />
-      </svg>
+    <footer
+      id="contact"
+      className="relative bg-[#0f2348] text-white pt-28 pb-16 overflow-hidden"
+    >
+      {/* ===== Curved Top Shape (Soft & Wide) ===== */}
+      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
+        <svg
+          viewBox="0 0 1440 140"
+          className="block w-full h-35"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,100 C240,40 480,40 720,70 960,100 1200,100 1440,60 L1440,0 L0,0 Z"
+            fill="#f8fafc"
+          />
+        </svg>
+      </div>
 
-      <div className="relative z-10 max-w-2xl mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold mb-10">
-          Ready to transform your business?
-        </h2>
+      {/* ===== Ellipse Glows ===== */}
+      <div className="absolute -bottom-32 -left-40 w-105 h-105 bg-blue-500/20 rounded-full blur-[140px]" />
+      <div className="absolute -bottom-40 -right-32 w-130 h-130 bg-cyan-500/20 rounded-full blur-[160px]" />
 
-        <form className="space-y-4">
+      {/* ===== Content ===== */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+        <SectionHeader
+          title="Ready to transform your business?"
+          titleColor="text-white"
+        />
+
+        <form className="space-y-4 mt-12 max-w-2xl mx-auto">
           <div className="grid grid-cols-2 gap-4">
-            <input className="input" placeholder="Name" />
-            <input className="input" placeholder="Email" />
+            <input
+              className="w-full px-4 py-2 rounded-md bg-transparent text-white border border-slate-300 placeholder-slate-500 focus:outline-none"
+              placeholder="Name"
+            />
+            <input
+              className="w-full px-4 py-2 rounded-md bg-transparent text-white border border-slate-300 placeholder-slate-500 focus:outline-none"
+              placeholder="Email"
+            />
           </div>
-          <input className="input w-full" placeholder="Company" />
+
+          <input
+            className="w-full px-4 py-2 rounded-md bg-transparent text-white border border-slate-300 placeholder-slate-500 focus:outline-none"
+            placeholder="Company"
+          />
+
           <textarea
-            className="input w-full h-28 resize-none"
+            className="w-full h-28 px-4 py-2 rounded-md bg-transparent text-white border border-slate-300 placeholder-slate-500 resize-none focus:outline-none"
             placeholder="Message"
           />
 
-          <button className="mt-6 px-8 py-3 bg-amber-500 text-[#0f2348] font-bold rounded shadow hover:bg-amber-400">
+          <button className="mt-2 px-8 py-3 bg-[#D29D48] text-[#0f2348] font-bold rounded-md shadow hover:bg-[#c08a3a] transition">
             Get Started
           </button>
         </form>
@@ -84,10 +62,6 @@ export default function Footer() {
           © {new Date().getFullYear()} DecisionLens. All rights reserved.
         </p>
       </div>
-
-      {/* Orbs */}
-      <div className="absolute bottom-0 left-0 w-72 h-72 bg-blue-600/10 blur-3xl rounded-full" />
-      <div className="absolute bottom-0 right-0 w-72 h-72 bg-cyan-600/10 blur-3xl rounded-full" />
     </footer>
   )
 }

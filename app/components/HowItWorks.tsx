@@ -29,7 +29,7 @@ function Step({ n, label, bg, last = false }: StepProps) {
 
 export default function HowItWorks() {
   return (
-    <section className="bg-slate-50 py-16">
+    <section id="process" className="bg-slate-50 py-16">
       <div className='max-w-7xl mx-auto px-6'>
       <SectionHeader title="How It Works" />
 
