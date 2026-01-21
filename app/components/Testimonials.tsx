@@ -57,7 +57,7 @@ export default function Testimonials() {
             {testimonials.map((testimonial) => (
               <SwiperSlide key={testimonial.id}>
                 <div className="p-10 md:p-16 relative min-h-42 flex flex-col justify-center">
-                  <BiSolidQuoteAltLeft className="absolute top-8 left-8 text-slate-400 w-6 h-6" />
+                  <BiSolidQuoteAltLeft className="absolute top-8 left-4 md:left-8 text-slate-400 w-6 h-6" />
 
                   <div className="relative z-10 text-center">
                     <p className="text-sm md:text-base text-slate-700 italic leading-relaxed mb-3">
@@ -74,7 +74,7 @@ export default function Testimonials() {
                     </div>
                   </div>
 
-                  <BiSolidQuoteAltRight className="absolute md:bottom-8 right-8 text-slate-400 w-6 h-6" />
+                  <BiSolidQuoteAltRight className="absolute md:bottom-8 right-4 md:right-8 text-slate-400 w-6 h-6" />
                 </div>
               </SwiperSlide>
             ))}
