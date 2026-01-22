@@ -11,7 +11,7 @@ export default function WhyChooseUs() {
   return (
     <motion.section
       id="about"
-      className="py-20 bg-white"
+      className="py-10 bg-white"
       variants={stagger}
       initial="hidden"
       whileInView="visible"

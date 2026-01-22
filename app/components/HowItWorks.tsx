@@ -54,7 +54,7 @@ export default function HowItWorks() {
   return (
     <motion.section
       id="process"
-      className="py-16"
+      className="py-10"
       variants={stagger}
       initial="hidden"
       whileInView="visible"
@@ -69,23 +69,23 @@ export default function HowItWorks() {
       <motion.div className="mt-8 flex flex-col md:flex-row md:h-20 max-w-7xl mx-auto md:overflow-visible">
         <Step
           n="1"
-          title="Collect & Analyze Data"
-          description="Analyze business goals."
+          title="Analyze Needs"
+          description="Understand your business and goals."
           bg="bg-[#0E356E]"
           isFirst
         />
 
         <Step
           n="2"
-          title="Optimize Procurement"
-          description="Scalable data systems."
+          title="Build Solutions"
+          description="Design data-driven and scalable systems."
           bg="bg-[#007f9c]"
         />
 
         <Step
           n="3"
-          title="Manage Contracts Efficiently"
-          description="Ensure compliance & speed."
+          title="Optimize & Manage"
+          description="Improve performance and ensure compliance."
           bg="bg-[#005a70]"
           isLast
         />
