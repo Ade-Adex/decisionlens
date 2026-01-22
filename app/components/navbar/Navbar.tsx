@@ -58,16 +58,16 @@ const Navbar = () => {
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled
           ? 'bg-[#0f2348] shadow-lg py-4'
-          : 'bg-[#0f2348] md:bg-transparent py-5'
+          : 'bg-[#0f2348] lg:bg-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-3 text-xl md:text-2xl font-bold text-white cursor-pointer"
+          className="flex items-center gap-3 text-xl lg:text-2xl font-bold text-white cursor-pointer"
         >
-          <div className="relative w-10 h-10 md:w-12 md:h-12 flex">
+          <div className="relative w-10 h-10 lg:w-12 lg:h-12 flex">
             <Image
               src={Logo}
               alt="DecisionLens Logo"
@@ -82,7 +82,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-3">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.substring(1)
 
@@ -121,7 +121,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-[#0f2348] absolute w-full h-screen top-full left-0 p-6 space-y-4">
+        <div className="lg:hidden bg-[#0f2348] absolute w-full h-screen top-full left-0 p-6 space-y-4">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.substring(1)
 
