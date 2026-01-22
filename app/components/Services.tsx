@@ -28,7 +28,7 @@ export default function Services() {
       </motion.div>
 
       {/* Services Grid */}
-      <motion.div className="w-full mt-14 grid md:grid-cols-4 gap-5">
+      <motion.div className="w-full mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
         {/* Analytics */}
         <motion.div variants={fadeUp}>
           <InfoCard
