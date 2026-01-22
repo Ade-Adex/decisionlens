@@ -1,6 +1,13 @@
+// /app/components/footer/Footer.tsx
+
 'use client'
 
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as z from 'zod'
 import SectionHeader from '@/app/components/shared/SectionHeader'
+import { sendEmail } from '@/app/actions' // Import the action
 import {
   FaFacebookF,
   FaWhatsapp,
@@ -9,7 +16,46 @@ import {
   FaXTwitter,
 } from 'react-icons/fa6'
 
+const contactSchema = z.object({
+  name: z.string().min(2, 'Name must be at least 2 characters'),
+  email: z.string().email('Please enter a valid email address'),
+  company: z.string().min(1, 'Company name is required'),
+  message: z.string().min(10, 'Message must be at least 10 characters'),
+})
+
+type ContactFormData = z.infer<typeof contactSchema>
+
 export default function Footer() {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [serverError, setServerError] = useState<string | null>(null)
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+  })
+
+  // UPDATED: Now calls the Resend Server Action
+  const onSubmit = async (data: ContactFormData) => {
+    setIsSubmitting(true)
+    setServerError(null)
+
+    const result = await sendEmail(data)
+
+    if (result.success) {
+      setSubmitted(true)
+      reset()
+    } else {
+      setServerError(result.error || 'Something went wrong. Please try again.')
+    }
+
+    setIsSubmitting(false)
+  }
+
   return (
     <footer
       id="contact"
@@ -29,63 +75,114 @@ export default function Footer() {
         </svg>
       </div>
 
-      {/* ===== Ellipse Glows ===== */}
-      <div className="absolute -bottom-32 -left-40 w-105 h-105 bg-blue-500/20 rounded-full blur-[140px]" />
-      <div className="absolute -bottom-40 -right-32 w-130 h-130 bg-cyan-500/20 rounded-full blur-[160px]" />
-
-      {/* ===== Content ===== */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
         <SectionHeader
           title="Ready to transform your business?"
           titleColor="text-white"
         />
 
-        {/* ===== Contact Form ===== */}
-        <form className="space-y-4 mt-12 max-w-2xl mx-auto">
-          <div className="grid grid-cols-2 gap-4">
-            <input
-              className="w-full px-4 py-2 rounded-md bg-transparent text-white border border-slate-300 placeholder-slate-500 focus:outline-none"
-              placeholder="Name"
-            />
-            <input
-              className="w-full px-4 py-2 rounded-md bg-transparent text-white border border-slate-300 placeholder-slate-500 focus:outline-none"
-              placeholder="Email"
-            />
+        {submitted ? (
+          <div className="mt-12 p-8 bg-green-500/10 border border-green-500 rounded-lg max-w-2xl mx-auto">
+            <h3 className="text-xl font-bold">Message Sent!</h3>
+            <p className="text-slate-300 mt-2">
+              Thank you for reaching out. We will get back to you shortly.
+            </p>
+            <button
+              onClick={() => setSubmitted(false)}
+              className="mt-4 text-sm underline hover:text-[#D29D48]"
+            >
+              Send another message
+            </button>
           </div>
+        ) : (
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="space-y-4 mt-12 max-w-2xl mx-auto text-left"
+          >
+            {serverError && (
+              <div className="p-3 bg-red-500/20 border border-red-500 text-red-200 rounded text-sm mb-4">
+                {serverError}
+              </div>
+            )}
 
-          <input
-            className="w-full px-4 py-2 rounded-md bg-transparent text-white border border-slate-300 placeholder-slate-500 focus:outline-none"
-            placeholder="Company"
-          />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <input
+                  {...register('name')}
+                  className={`w-full px-4 py-2 rounded-md bg-transparent text-white border ${errors.name ? 'border-red-500' : 'border-slate-300'} focus:outline-none`}
+                  placeholder="Name"
+                />
+                {errors.name && (
+                  <p className="text-red-400 text-xs mt-1">
+                    {errors.name.message}
+                  </p>
+                )}
+              </div>
 
-          <textarea
-            className="w-full h-28 px-4 py-2 rounded-md bg-transparent text-white border border-slate-300 placeholder-slate-500 resize-none focus:outline-none"
-            placeholder="Message"
-          />
+              <div>
+                <input
+                  {...register('email')}
+                  className={`w-full px-4 py-2 rounded-md bg-transparent text-white border ${errors.email ? 'border-red-500' : 'border-slate-300'} focus:outline-none`}
+                  placeholder="Email"
+                />
+                {errors.email && (
+                  <p className="text-red-400 text-xs mt-1">
+                    {errors.email.message}
+                  </p>
+                )}
+              </div>
+            </div>
 
-          <button className="mt-2 px-8 py-3 bg-[#D29D48] text-[#0f2348] font-bold rounded-md shadow hover:bg-[#c08a3a] transition">
-            Get Started
-          </button>
-        </form>
+            <div>
+              <input
+                {...register('company')}
+                className={`w-full px-4 py-2 rounded-md bg-transparent text-white border ${errors.company ? 'border-red-500' : 'border-slate-300'} focus:outline-none`}
+                placeholder="Company"
+              />
+              {errors.company && (
+                <p className="text-red-400 text-xs mt-1">
+                  {errors.company.message}
+                </p>
+              )}
+            </div>
+
+            <div>
+              <textarea
+                {...register('message')}
+                className={`w-full h-28 px-4 py-2 rounded-md bg-transparent text-white border ${errors.message ? 'border-red-500' : 'border-slate-300'} resize-none focus:outline-none`}
+                placeholder="Message"
+              />
+              {errors.message && (
+                <p className="text-red-400 text-xs mt-1">
+                  {errors.message.message}
+                </p>
+              )}
+            </div>
+
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="mt-2 w-full md:w-auto px-8 py-3 bg-[#D29D48] text-[#0f2348] font-bold rounded-md shadow hover:bg-[#c08a3a] transition disabled:opacity-50"
+            >
+              {isSubmitting ? 'Sending...' : 'Get Started'}
+            </button>
+          </form>
+        )}
 
         {/* ===== Social Media Icons ===== */}
         <div className="mt-14 flex justify-center gap-6">
           <SocialIcon href="#" label="Facebook">
             <FaFacebookF />
           </SocialIcon>
-
           <SocialIcon href="https://wa.me/2348140877018" label="WhatsApp">
             <FaWhatsapp />
           </SocialIcon>
-
           <SocialIcon href="#" label="LinkedIn">
             <FaLinkedinIn />
           </SocialIcon>
-
           <SocialIcon href="#" label="Instagram">
             <FaInstagram />
           </SocialIcon>
-
           <SocialIcon href="#" label="Twitter / X">
             <FaXTwitter />
           </SocialIcon>
@@ -99,7 +196,6 @@ export default function Footer() {
   )
 }
 
-/* ===== Reusable Social Icon ===== */
 function SocialIcon({
   href,
   label,
@@ -115,19 +211,7 @@ function SocialIcon({
       aria-label={label}
       target="_blank"
       rel="noopener noreferrer"
-      className="
-        w-11 h-11
-        rounded-full
-        border border-white/30
-        flex items-center justify-center
-        text-lg
-        text-white
-        transition-all duration-300
-        hover:bg-[#D29D48]
-        hover:text-[#0f2348]
-        hover:-translate-y-1
-        hover:shadow-lg
-      "
+      className="w-11 h-11 rounded-full border border-white/30 flex items-center justify-center text-lg text-white transition-all duration-300 hover:bg-[#D29D48] hover:text-[#0f2348] hover:-translate-y-1 hover:shadow-lg"
     >
       {children}
     </a>
