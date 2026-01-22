@@ -19,7 +19,8 @@ export default function Services() {
       variants={stagger}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.3 }} // animate once when 30% visible
+      // viewport={{ once: false, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.1 }}
     >
       {/* Animate Section Header */}
       <motion.div variants={fadeUp}>

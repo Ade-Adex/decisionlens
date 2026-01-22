@@ -15,7 +15,8 @@ export default function WhyChooseUs() {
       variants={stagger}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.3 }}
+      // viewport={{ once: false, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.1 }}
     >
       {/* Section Header */}
       <motion.div variants={fadeUp}>
