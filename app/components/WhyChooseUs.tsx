@@ -28,7 +28,7 @@ export default function WhyChooseUs() {
       </motion.div>
 
       {/* Grid */}
-      <motion.div className="max-w-7xl mx-auto px-6 mt-14 grid md:grid-cols-4 gap-5 ">
+      <motion.div className="max-w-7xl mx-auto px-6 mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5 ">
         {/* Card 1 */}
         <motion.div variants={fadeLeft}>
           <InfoCard
