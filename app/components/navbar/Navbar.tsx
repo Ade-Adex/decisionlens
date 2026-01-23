@@ -67,7 +67,7 @@ const Navbar = () => {
           href="/"
           className="flex items-center gap-3 text-xl lg:text-2xl font-bold text-white cursor-pointer"
         >
-          <div className="relative w-10 h-10 lg:w-12 lg:h-12 flex">
+          <div className="relative w-14 h-14 lg:w-16 lg:h-16 flex">
             <Image
               src={Logo}
               alt="DecisionLens Logo"
