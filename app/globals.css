@@ -34,6 +34,24 @@ body {
   @apply w-full p-3 rounded bg-slate-800/50 border border-slate-600 placeholder-slate-400 outline-none focus:border-[#00a6c6];
 }
 
+/* Prevent Autofill Background Override */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  /* This creates an internal shadow that covers the white background */
+  -webkit-box-shadow: 0 0 0 1000px #0f2348 inset !important;
+  /* This sets the text color back to white */
+  -webkit-text-fill-color: white !important;
+  /* Matches your input's border transition if needed */
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Optional: Make sure the cursor is still visible */
+input:-webkit-autofill {
+  caret-color: white;
+}
+
 
 /* Desktop Steps — chevron shapes */
 @media (min-width: 768px) {

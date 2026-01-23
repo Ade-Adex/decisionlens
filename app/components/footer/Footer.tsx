@@ -160,9 +160,9 @@ export default function Footer() {
             </div>
 
             <button
-              type="submit"
-              disabled={isSubmitting}
-              className="mt-2 w-full md:w-auto px-8 py-3 bg-[#D29D48] text-[#0f2348] font-bold rounded-md shadow hover:bg-[#c08a3a] transition disabled:opacity-50"
+                type="submit"
+                disabled={isSubmitting}
+                className={`mt-2 w-full md:w-auto flex justify-center mx-auto px-8 py-3 bg-[#D29D48] text-[#0f2348] font-bold rounded-md shadow hover:bg-[#c08a3a] transition disabled:opacity-50 ${isSubmitting ? 'cursor-not-allowed' : 'cursor-pointer'}`}
             >
               {isSubmitting ? 'Sending...' : 'Get Started'}
             </button>
